@@ -6,6 +6,7 @@ if len(sys.argv) < 4 or len(sys.argv) > 5:
 
 	print("Modo de uso:")
 	print("python3 script.py <ip> <user> <wordlist> [port (default 21)]")
+	sys.exit(0)
 
 ip = sys.argv[1]
 
@@ -13,7 +14,10 @@ user = sys.argv[2]
 
 keys = open(sys.argv[3],'r')
 
-port = int(sys.argv[4])
+try:
+	port = int(sys.argv[4])
+except:
+	port = 21
 
 for key in keys:
 
